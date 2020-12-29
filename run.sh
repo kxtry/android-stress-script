@@ -10,10 +10,9 @@ do
    case "$mode" in
      'start')
         read -p "input device IP[192.168.30.25]: " ip
-        read -p "input watch type such as [temp,frame,none],default none: " type
-        echo "start parameter: IP: $ip  -  type:$type"
+        echo "start parameter: IP: $ip"
         if [ "$ip" != "" ]; then
-            /bin/bash $path_script/script/start.sh "$ip:5555" "$type"
+            /bin/bash $path_script/script/start.sh "$ip:5555" "temp,frame"
         fi
         if [ "$ip" == "" ]; then
            echo "IP should not be empty"
@@ -21,7 +20,7 @@ do
      ;;
      'stop')
         read -p "input device IP[192.168.30.25]: " ip
-        echo "stop parameter: IP: $ip  -  type:$type"
+        echo "stop parameter: IP: $ip"
         if [ "$ip" != "" ]; then
            /bin/bash $path_script/script/stop.sh "$ip:5555"
         fi

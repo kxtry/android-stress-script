@@ -2,7 +2,7 @@
 
 path_current=`pwd`
 path_script=$(cd "$(dirname "$0")"; pwd)
-path_data=$path_script/../;
+path_data=$path_script/../data;
 
 target=$1
 while true
@@ -14,4 +14,5 @@ do
   fi
   echo "--------[${run_time}]----------------" >> $path_data/${target}/error.txt
   adb -s "$target" logcat *:E >> $path_data/${target}/error.txt
+  sleep 3
 done

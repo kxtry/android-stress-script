@@ -13,7 +13,7 @@ ps -ef | grep "$target"| grep -v grep
 
 while true
 do
-  app_process=`ps -ef | grep "$target"| grep -v grep`
+  app_process=`ps -ef | grep "$target"| grep -v grep|grep -v stop.sh`
   echo $app_process | awk '{print ($2)}'
   stop=1
   if test -n "$app_process"; then
